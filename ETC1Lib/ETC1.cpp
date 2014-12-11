@@ -51,7 +51,7 @@ extern "C" __declspec (dllexport) void ConvertETC1(unsigned int* dataOut, unsign
 					for(y = yImage + xStart; y < yImage + xStart + 4; y++)
 						for(x = xImage + yStart; x < xImage + yStart + 4; x++)
 						{
-							buffer[(x * height) + y] = (((data & 0xF) << 28) & 0xFF000000);
+							buffer[(x * height) + y] = ((((data & 0xF) << 28) | ((data & 0xF) << 24)) & 0xFF000000);
 							data >>= 4;
 						}
 
